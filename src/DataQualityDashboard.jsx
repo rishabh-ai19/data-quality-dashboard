@@ -511,7 +511,7 @@ const DataQualityDashboard = () => {
 
   const tabs = [
     { id: 'overview', label: 'Overview', icon: Database },
-    { id: 'schema-changes', label: 'Schema Changes', icon: TrendingUp },
+    { id: 'column-changes', label: 'Column Changes', icon: TrendingUp },
     { id: 'name-mismatches', label: 'Name Mismatches', icon: AlertTriangle },
     { id: 'type-mismatches', label: 'Type Mismatches', icon: XCircle },
     { id: 'upload', label: 'Upload Data', icon: Upload }
@@ -578,7 +578,7 @@ const DataQualityDashboard = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <FileUploadSection
-                title="Schema Changes"
+                title="Column Changes"
                 dataType="newOldDelete"
                 description="Upload new_old_delete.csv to track column additions and deletions"
                 icon={TrendingUp}
@@ -683,16 +683,16 @@ const DataQualityDashboard = () => {
           </>
         )}
 
-        {/* Schema Changes Tab */}
-        {activeTab === 'schema-changes' && (
+        {/* Column Changes Tab */}
+        {activeTab === 'column-changes' && (
           <>
             <div className="bg-white rounded-lg shadow mb-8">
               <div className="px-6 py-4 border-b border-gray-200">
                 <h2 className="text-xl font-semibold text-gray-900 flex items-center">
                   <TrendingUp className="h-5 w-5 mr-2" />
-                  Schema Changes Analysis
+                  Column Changes Analysis
                 </h2>
-                <p className="text-gray-600 mt-1">New and deleted columns by schema</p>
+                <p className="text-gray-600 mt-1">Track new and deleted columns across your database tables</p>
               </div>
               <div className="p-6">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
@@ -737,7 +737,7 @@ const DataQualityDashboard = () => {
 
             <DataTable
               dataType="newOldDelete"
-              title="Schema Changes Details"
+              title="Column Changes Details"
               columns={[
                 { key: 'schema_name', label: 'Schema Name' },
                 { key: 'table_name', label: 'Table Name' },
